@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify, g
 import sqlite3
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) 
 DATABASE = './db/todo.db'
 
 # Database helper functions

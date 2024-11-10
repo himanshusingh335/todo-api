@@ -8,8 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Install required packages
-RUN pip install flask sqlite3
-
+RUN pip install flask flask_cors
+RUN apt-get update && apt-get install -y sqlite3
 # Expose the port the app runs on
 EXPOSE 5000
 
