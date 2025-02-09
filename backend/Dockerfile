@@ -15,3 +15,5 @@ EXPOSE 5000
 
 # Run the app
 CMD ["python", "app.py"]
+
+# NOTE: to create container: docker run -d -p 8000:5000 --name backend -v todo-data:/app/db/ --network todo-network mariox1105/todo-backend:1.0

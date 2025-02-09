@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const API_URL = "http://localhost:8501/todos";
+document.addEventListener("DOMContentLoaded", function () {
+    // Updated API URL to match Nginx reverse proxy's configuration
+    const API_URL = "/api/todos";
 
     // Function to fetch and display all todos
     async function fetchTodos() {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Clear existing todos from the display and render the new ones
             const todoList = document.getElementById("todo-list");
-            todoList.innerHTML = "";  // Clear previous content
+            todoList.innerHTML = ""; // Clear previous content
             todos.forEach(todo => {
                 const todoItem = document.createElement("li");
                 todoItem.textContent = `${todo.id}: ${todo.task}`;
@@ -43,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ task })
+                body: JSON.stringify({ task }),
             });
             console.log("Add todo response status:", response.status);
 
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Attempting to delete todo with ID:", id);
         try {
             const response = await fetch(`${API_URL}/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
             });
             console.log("Delete todo response status:", response.status);
 
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const task = taskInput.value.trim();
             if (task) {
                 addTodo(task);
-                taskInput.value = "";  // Clear input after adding
+                taskInput.value = ""; // Clear input after adding
             } else {
                 console.warn("Task input is empty, not adding.");
             }
