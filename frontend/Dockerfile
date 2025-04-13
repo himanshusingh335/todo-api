@@ -11,4 +11,4 @@ EXPOSE 80
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
 
-#docker run -d --name nginx-frontend --network todo-network -p 80:80 sha256:92c1f42ef61f2e3d3f864dd1a2badfde2b8efa41654f3ee14ced11ff44346a40
+#docker run -d --name nginx-frontend --network todo-network -p 80:80 mariox1105/todo-frontend:1.0
